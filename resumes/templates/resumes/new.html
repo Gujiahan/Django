@@ -1,0 +1,19 @@
+{% include 'layouts/base.html' %}
+
+
+{% block content %}
+<h1>新增</h1>
+<form method="post" action="{% url 'resumes:index' %}">
+    {% csrf_token %}
+    {% for field in form %}
+    <div>
+        {{ field.label }}
+        {{ field }}
+        {{ field.errors }}
+    </div>
+    {% endfor %}
+    <div>
+        <button>新增</button>
+    </div>
+</form>
+{% endblock %}

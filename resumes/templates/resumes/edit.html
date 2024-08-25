@@ -1,0 +1,19 @@
+{% include 'layouts/base.html' %}
+
+
+{% block content %}
+<h1>編輯</h1>
+<form method="post" action="{% url 'resumes:show' archive.id %}">
+    {% csrf_token %}
+    {% for field in form %}
+    <div>
+        {{ field.label }}
+        {{ field }}
+        {{ field.errors }}
+    </div>
+    {% endfor %}
+    <div>
+        <button>編輯</button>
+    </div>
+</form>
+{% endblock %}
